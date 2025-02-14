@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+    {%if type == "Leave" %}
+
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Pending Application Notification</title>
+        </head>
+        <body style="font-family: Arial, sans-serif;">
+
+
+            <p>Dear Sir/Mam,</p>
+
+            <p>I hope this email finds you well. </p>
+
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Leave  Date:</b> {{dates}}</li>
+            </ul>
+
+            <p>I wanted to bring to your attention that your leave request for today is currently pending a response from your respective manager. As of now, we haven't received an approval or rejection for your leave application.</p>
+
+            <p>To ensure a smooth workflow and proper communication, I kindly recommend that you connect with your managers, at your earliest convenience to discuss the status of your leave request. It's important to have a clear understanding before proceeding with your planned leave.</p>
+
+            <p>Feel free to reach out to Manager via email or a quick phone call. Your proactive communication will help address any uncertainties and allow you to make informed decisions regarding your leave.</p>
+
+            <p>If you require any assistance or have questions, please don't hesitate to contact our HR department.</p>
+
+            <p>Thank you for your prompt attention to this matter. We appreciate your commitment to maintaining open lines of communication.</p>
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>
+
+        </body>
+
+    {%else%}
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Pending Application Notification</title>
+        </head>
+        <body style="font-family: Arial, sans-serif;">
+
+
+            <p>Dear Sir/Mam,</p>
+
+            <p>I hope this email finds you well. </p>
+
+
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Work form home  date:</b> {{dates}}</li>
+            </ul>
+            <p>I wanted to remind you that you had submitted a Work From Home (WFH) request for today. However, it appears that we haven't received a response from your respective manager regarding the approval status of your request.</p>
+
+            <p>Before proceeding with your WFH arrangement, I kindly request that you reach out to your managers, to confirm the status of your request. Effective communication ensures that everyone is aligned and aware of your remote work plans.</p>
+
+            <p>Please make sure to connect with Manager's at your earliest convenience. If there are any updates or changes to your plans, please communicate them to both your manager and our HR department.</p>
+
+            <p>If you require any assistance or have questions, please don't hesitate to contact our HR department.</p>
+
+            <p>Thank you for your prompt attention to this matter. We appreciate your commitment to maintaining open lines of communication.</p>
+
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>
+
+        </body>
+
+
+    {%endif%}
+
+</html>

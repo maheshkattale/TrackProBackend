@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+    {%if type == "Leave" %}
+
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Leave Application Notification</title>
+        </head>
+        <body style="font-family: Arial, sans-serif;">
+
+
+            <p>Dear Sir/Mam,</p>
+
+            <p>I hope this email finds you well. This is  to inform you that {{employeename}} has applied for leave.</p>
+
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Employee Name:</b> {{employeename}}</li>
+                <li><b>Leave  Date:</b> {{dates}}</li>
+                <li><b>Reason for Leave:</b> {{reason}}</li>
+            </ul>
+
+            <p>Please review the leave application and take appropriate action based on your department's policies and requirements. If you approve the leave,
+                kindly ensure that {{employeename}}  completes any necessary handovers and delegates tasks as needed.</p>
+
+            <p>Additionally, this notification is sent to the HR, Admin, and Accounts departments for their awareness and action, if required.
+                If there are any concerns or questions related to this leave application, please feel free to reach out  the HR team for assistance.
+                Thank you for your prompt attention to this matter.</p>
+
+            <p>Thank you for your prompt attention to this matter.</p>
+
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>
+
+        </body>
+
+    {%else%}
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Work from Home Application Notification</title>
+        </head>
+        <body style="font-family: Arial, sans-serif;">
+
+
+            <p>Dear Sir/Mam,</p>
+
+            <p>I hope this email finds you well. This is  to inform you that {{employeename}} has applied for Work from Home.</p>
+
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Employee Name:</b> {{employeename}}</li>
+                <li><b>Work from Home Date:</b> {{dates}}</li>
+                <li><b>Reason for Work from Home:</b> {{reason}}</li>
+            </ul>
+
+            <p>We kindly request you to review the application and consider its feasibility based on the employee's role, responsibilities, and department requirements.</p>
+
+
+            <p>The HR Department will ensure that the necessary arrangements are made to facilitate the work from home arrangement, and the Admin Department will assist with any logistical support required.</p>
+
+
+            <p>Thank you for your attention to this matter. Your prompt action is appreciated to facilitate a smooth and efficient process for the employee's work from home arrangement.</p>
+
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>
+
+        </body>
+
+
+    {%endif%}
+
+</html>

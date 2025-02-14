@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Attendance Report </title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+      }
+  
+      th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 12px;
+      }
+  
+      th {
+        background-color: #f2f2f2;
+      }
+  
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+  
+      tr:hover {
+        background-color: #e6f7ff;
+      }
+    </style>
+  </head>
+  <body style="font-family: Arial, sans-serif;">
+    <p>Dear {{Employee_Name}},</p>
+
+    <p>I hope this message finds you well. As part of our ongoing efforts to streamline processes and enhance transparency, we are pleased to provide you with your attendance report for the month of {{month}},{{year}}. This report encompasses your attendance data, including details such as work hours, absences, and any relevant notes.</p>
+
+    <h4>Attendance Report for {{month}},{{year}}:</h4>
+    <ul>
+      <li>
+        <b>Total Working days:</b>  {{monthly_working_days}}
+      </li>
+      <li>
+        <b>Number of Worked days:</b>{{monthly_worked_days}}
+      </li>
+      <li>
+        <b>Number of Leaves:</b>{{monthly_leaves}}
+      </li>
+      <li>
+        <b>Late Arrivals:</b>{{monthly_late_marks}}
+      </li>
+
+    </ul>
+
+
+    <p><b>    Report:    </b></p>
+
+    <table>
+      <thead>
+        <th>Sr No</th>
+        <th>Date</th>
+        <th>In Time</th>
+        <th>Out Time</th>
+        <th>Total Time</th>
+        {% comment %} <th>Shift</th> {% endcomment %}
+        <th>Working Status</th>
+      </thead>
+      <tbody>
+        {% for i in report %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ i.fulldate }}  {% if i.extra_days is not None and i.extra_days  != ''  %}<span style="color: red;"> {{i.extra_days}}</span>{% endif %} </td>
+          <td>{{ i.inTime }}   {% if i.extra_days is not None and i.extra_days  != ''  %} {% if i.inTime_date is not None %}({{i.inTime_date}}){% endif %}{% endif %}  </td>
+          <td>{{ i.outTime }}     {% if i.extra_days is not None and i.extra_days  != ''  %} {% if i.outTime_date is not None %} ({{i.outTime_date}}) {% endif %}{% endif %} </td>
+          <td>{{ i.Total }}</td>
+          {% comment %} <td>{{ i.shift.shiftname }} ({{i.shift.intime}} - {{i.shift.outtime}})</td> {% endcomment %}
+          <td>{{ i.att_status }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div style="margin-top: 10px;">Thank you for your attention to this matter.</div>
+    <div>Best regards,</div>
+
+    <div>Team Zentro</div>
+  </body>
+</html>

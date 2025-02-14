@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+{%if Action_status == "Approved" %}
+
+    {%if WFH == True %}
+        <head>
+            <meta charset="UTF-8">
+            <title>Approved Work From Home for {{employeename}} </title>
+        </head>
+        <body style="font-family: Arial, sans-serif;">
+
+
+            <p>Dear {{employeename}},</p>
+
+
+            {%if leave_status == "Pending" %}
+
+                <p> I hope this email finds you well. I wanted to inform you that your Work From Home application has been approved by {{actedmanager}},</p>
+
+                <h4>Application Details:</h4>
+                <ul>
+                    <li><b>Application Id:</b> {{applicationid}}</li>
+                    <li><b>Work From Home  Date:</b> {{dates}}</li>
+                </ul>
+
+                <p>However, please note that your Work From Home request is still pending final approval. We are currently waiting for approval from all managers assigned to you. Once all managers have approved your Work From Home request, we will process it accordingly.</p>
+
+
+            {%else%}
+
+                <p> I hope this email finds you well. I wanted to inform you that your Work From Home application has been approved by all managers, including {{actedmanager}},
+                    We understand the need for flexibility in the current work environment and are happy to accommodate your request.</p>
+
+                <h4>Application Details:</h4>
+                <ul>
+                    <li><b>Application Id:</b> {{applicationid}}</li>
+                    <li><b>Work From Home  Date:</b> {{dates}}</li>
+                </ul>
+
+                <p>You are now authorized to work from home as per your request. Please ensure that you have the necessary tools and resources to carry out your tasks effectively from your remote location.</p>
+
+
+
+
+            {%endif%}
+
+
+
+            <p>We believe in the team's ability to collaborate effectively and maintain productivity, even with remote work arrangements. Let's continue to communicate openly, share ideas, and support each other in delivering exceptional results.</p>
+
+
+            <p>Thank you for your understanding and cooperation .</p>
+
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>
+
+        </body>
+
+    {%else%}
+        <head>
+            <meta charset="UTF-8">
+            <title>Approved Leave for {{employeename}} </title>
+        </head>
+        <body style="font-family: Arial, sans-serif;">
+
+
+            <p>Dear {{employeename}},</p>
+
+            <p>I hope this email finds you well .      .
+            </p>
+
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Leave  Date:</b> {{dates}}</li>
+            </ul>
+            {%if leave_status == "Pending" %}
+                <p>I am pleased to inform you that your leave request has been approved by {{actedmanager}}. We understand the importance of taking time off for personal or professional reasons, and we are happy to support your request.</p>
+                <p>However, please note that your leave request is still pending final approval. We are currently waiting for approval from all managers assigned to you. Once all managers have approved your leave, we will process it accordingly.</p>
+            {%else%}
+                <p> I wanted to inform you that your leave application has been approved by all managers, including {{actedmanager}}. We are pleased to let you know that your requested leave has been granted.</p>
+            {%endif%}
+            <p>If you have any questions or need further assistance, please feel free to reach out to {{actedmanager}} or the HR department.</p>
+
+
+            <p>Thank you for your dedication and commitment to the team. We wish you a restful and productive leave                .</p>
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>
+
+        </body>
+    {%endif%}
+
+
+{%else%}
+
+    {%if WFH == True %}
+        <head>
+            <meta charset="UTF-8">
+            <title>Rejected Work From Home for {{employeename}} </title>
+        </head>
+        <body style="font-family: Arial, sans-serif;">
+
+
+            <p>Dear {{employeename}},</p>
+
+            <p>
+                I hope this email finds you well.
+            </p>
+            <p>
+                I regret to inform you that your recent Work From Home  request has been rejected by {{actedmanager}}, who cited the following reasons: {{reason}}.
+            </p>
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Leave  Date:</b> {{dates}}</li>
+            </ul>
+            <p>
+                We understand that Work From Home are important and sometimes unexpected situations can arise. If you have any questions or concerns regarding this decision or if you would like to discuss your leave request further, please feel free to reach out to {{actedmanager}} directly.
+            </p>
+
+
+            <p>
+                We encourage you to review the company's leave policy and ensure that your future leave requests are aligned with the guidelines provided.
+            </p>
+
+
+            <p>
+                Thank you for your understanding.
+            </p>
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>
+
+        </body>
+
+    {%else%}
+        <head>
+            <meta charset="UTF-8">
+            <title>Rejected Leave for {{employeename}} </title>
+        </head>
+        <body style="font-family: Arial, sans-serif;">
+
+
+            <p>Dear {{employeename}},</p>
+
+            <p>
+                I hope this email finds you well.
+            </p>
+            <p>
+                I regret to inform you that your recent leave request has been rejected by {{actedmanager}}, who cited the following reasons: {{reason}}.
+            </p>
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Leave  Date:</b> {{dates}}</li>
+            </ul>
+
+            <p>
+                We understand that leaves are important and sometimes unexpected situations can arise. If you have any questions or concerns regarding this decision or if you would like to discuss your leave request further, please feel free to reach out to {{actedmanager}} directly.
+            </p>
+        
+            <p>
+                We encourage you to review the company's leave policy and ensure that your future leave requests are aligned with the guidelines provided.
+            </p>
+            <p>
+                Thank you for your understanding.
+            </p>
+
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>
+
+        </body>
+    {%endif%}
+
+
+
+{%endif%}
+</html>

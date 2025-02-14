@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reminder Email</title>
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #999;
+    }
+  </style>
+</head>
+
+    {%if type == "Leave" %}
+
+        {%if leave_status == "Approved" %}
+
+          <body>
+            <div class="container">
+              <h1>Hello Team,</h1>
+              <p>I hope this email finds you well.
+                We would like to inform you that <b>{{employeename}}</b> from our team is on leave ,
+                  period: <b>{{dates}}</b>. During this period, he/she will not be available for work-related tasks..</p>
+              
+
+              <p> In <b>{{employeename}}</b> absence, we kindly request you to mention any specific instructions,
+                reassign tasks, or provide contact information for any urgent matters. Let's make sure that the team continues to collaborate effectively to ensure minimal disruption to our ongoing projects.</p>
+              
+              
+              <p>Thank you for your attention to this matter.</p>
+              
+              <div>Best regards,</div>
+
+              <div>Team Zentro</div>              
+
+            </div>
+          
+            <div class="footer">
+            </div>
+          </body>
+
+
+        {%else%}
+        
+          <body>
+            <div class="container">
+              <h1>Hello Team,</h1>
+              <p>I hope this email finds you well. this is to inform you that the leave application submitted by <b>{{employeename}}</b> for the period of <b>{{dates}}</b> has been rejected due to a lack of response from the respective managers.</p>
+              <h4>Application Details:</h4>
+              <ul>
+                  <li><b>Application Id:</b> {{applicationid}}</li>
+                  <li><b>Application Reason:</b> {{reason}}</li>
+              </ul>
+
+              <p> As part of our process, we require the approval or rejection of leave applications by the respective managers to ensure proper management of workloads and responsibilities during an employee's absence. Unfortunately, despite multiple attempts to reach out for your input on this matter, we did not receive a response within the stipulated time frame.</p>
+              
+              <p>Due to this, we are unable to proceed with the leave request and have communicated the rejection to <b>{{employeename}}</b>. We understand the importance of timely decision-making for our employees' leave requests and are committed to maintaining a transparent and effective leave management process.</p>
+              
+              <p>Thank you for your attention to this matter.</p>
+              
+              <div>Best regards,</div>
+
+              <div>Team Zentro</div>              
+
+            </div>
+          
+            <div class="footer">
+            </div>
+          </body>
+
+        {%endif%}
+
+
+    {%else%}
+      {%if leave_status == "Approved" %}
+        <body>
+            
+          <div class="container">
+            <h1>Hello Team,</h1>
+            <p>I hope this email finds you well. This is  to bring to your attention that one of your team members,
+              <b>{{employeename}}</b>, will be working from home .period: <b>{{dates}}</b></p>
+            
+            <p>Due to unforeseen circumstances, <b>{{employeename}}</b>, will not be able to join us in the office but will be available remotely to ensure a seamless workflow. Rest assured that [he/she] will be accessible via email, phone, and other communication channels throughout the days.</p>
+            
+            <p>If you have any urgent matters that require <b>{{employeename}}</b>'s attention, please do not hesitate to reach out. [He/She] will continue to actively participate in team discussions and handle their responsibilities efficiently from the remote setup.</p>
+            
+            <p>Let's extend our support and understanding to ensure that <b>{{employeename}}</b> can work productively from home. If you need any assistance or have any questions related to [his/her] tasks, feel free to contact [him/her] as usual.</p>
+            
+            <p>Thank you for your cooperation, and we look forward to a productive day despite this temporary change in the work arrangement..</p>
+            
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>          
+
+          </div>
+
+          <div class="footer">
+          </div>
+        </body>
+      {%else%}
+      <body>
+          
+        <div class="container">
+          <h1>Hello Team,</h1>
+          <p>I hope this email finds you well. This is  to bring to your attention that one of your team members,
+            <b>{{employeename}}</b>, has applied for  working from home  period: <b>{{dates}}</b></p>
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Application Reason:</b> {{reason}}</li>
+            </ul>
+          <p>Unfortunately, despite our attempts, we did not receive a response from them within the allotted time. Consequently, the WFH application has been rejected.</p>
+          
+          <p>Thank you for your understanding.</p>
+          <div>Best regards,</div>
+
+          <div>Team Zentro</div>        
+
+        </div>
+
+        <div class="footer">
+        </div>
+      </body>
+      {%endif%}
+
+
+
+
+
+    {%endif%}
+
+</html>

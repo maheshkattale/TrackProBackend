@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+    {%if type == "Leave" %}
+        <head>
+            <meta charset="UTF-8">
+            <title> Leave Withdrawal Notification for {{employeename}}</title>
+        </head>
+        <body style="font-family: Arial, sans-serif;">
+
+
+            <p>Dear Sir/Mam,</p>
+
+            <p>I hope this message finds you well. We would like to inform you that {{employeename}} has withdrawn their leave application. </p>
+
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Application  Date:</b> {{dates}}</li>
+                <li><b>Withdrawn  Date:</b> {{withdrawn_date}}</li>
+            </ul>
+
+            <p>Please update your records accordingly. If you have any questions or need further information, please do not hesitate to reach out to the HR department or the employee in question.</p>
+
+            <p>Thank you for your prompt attention to this matter. We appreciate your commitment to maintaining open lines of communication.</p>
+
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>
+
+        </body>
+
+    {%else%}
+
+        <head>
+            <meta charset="UTF-8">
+            <title> Work From Home Withdrawal Notification For {{employeename}}</title>
+        </head>
+        <body style="font-family: Arial, sans-serif;">
+
+
+            <p>Dear Sir/Mam,</p>
+
+            <p>I hope this message finds you well. We would like to inform you that {{employeename}} has withdrawn their work form home application.</p>
+
+
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Application date:</b> {{dates}}</li>
+                <li><b>Withdrawn  Date:</b> {{withdrawn_date}}</li>
+
+            </ul>
+            <p>Please update your records accordingly. If you have any questions or need further information, please do not hesitate to reach out to the HR department or the employee in question.</p>
+
+            <p>Thank you for your prompt attention to this matter. We appreciate your commitment to maintaining open lines of communication.</p>
+
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>
+
+
+        </body>
+
+
+    {%endif%}
+
+</html>

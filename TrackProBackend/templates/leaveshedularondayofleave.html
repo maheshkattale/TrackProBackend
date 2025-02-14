@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reminder Email</title>
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #999;
+    }
+  </style>
+</head>
+
+    {%if type == "Leave" %}
+
+        {%if leave_status == "Approved"%}
+
+
+        <body>
+            <div class="container">
+            <h1>Dear {{employeename}},</h1>
+            <p>I hope this email finds you well. We would like to inform you that your leave application has been approved.</p>
+            
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Leave  Date:</b> {{dates}}</li>
+            </ul>
+            <p> During your absence, we kindly ask you to ensure that all pending tasks are completed or handed over to a colleague.
+                Your team lead, [Team Lead's Name],
+                has been informed about your leave and will coordinate to ensure a smooth workflow in your absence.</p>
+            
+            
+            <p>We hope you have a restful and rejuvenating break. We look forward to your return and appreciate your dedication to our team</p>
+            
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>            
+
+            </div>
+
+        </body>
+
+        {%else%}
+
+        <body>
+            <div class="container">
+            <h1>Dear {{employeename}},</h1>
+            <p>
+                
+                I hope this email finds you well. 
+                I wanted  address your recent leave application, which unfortunately had to be declined due to a 
+                lack of response from the respective managers involved.
+
+            </p>
+
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Leave  Date:</b> {{dates}}</li>
+            </ul>
+            <p> We understand the importance of your leave request and apologize for any inconvenience this may have caused. However, as we strive to maintain a smooth workflow and ensure adequate coverage for ongoing projects, we require confirmation and coordination from all relevant parties</p>
+            <p>Please know that your request was carefully considered, but due to the absence of responses from the involved managers, we were unable to proceed with the approval process. We encourage you to reapply for leave in the future, ensuring that you have communicated with your managers well in advance to facilitate a smoother review process.</p>
+            <p>Thank you for your understanding, and I look forward to ongoing collaboration.</p>
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>            
+
+            </div>
+
+        </body>
+
+        {%endif%}
+
+    {%else%}
+
+        {%if leave_status == "Approved" %}
+        <body>
+            
+            <div class="container">
+                <h1>Dear {{employeename}},</h1>
+                <p>I hope this email finds you well. We would like to inform you that your work form home application has been approved.</p>
+                
+                <h4>Application Details:</h4>
+                <ul>
+                    <li><b>Application Id:</b> {{applicationid}}</li>
+                    <li><b>Leave  Date:</b> {{dates}}</li>
+                </ul>
+                <p> Please make sure to adhere to your agreed-upon work schedule and remain accessible during working hours. Ensure that you have all the necessary tools and resources to effectively carry out your tasks remotely.</p>
+                
+                
+                <p>Feel free to reach out to your manager or team members for any work-related queries or assistance. Regular communication will be essential to maintain collaboration and keep everyone updated on your progress.</p>
+                <p>We trust that you will continue to deliver your tasks with the same dedication and professionalism while working remotely. If you encounter any challenges or have any concerns during this period, please don't hesitate to reach out.</p>
+                <p>Thank you for your commitment and flexibility. We look forward to a productive work-from-home period.</p>
+                <div>Best regards,</div>
+
+                <div>Team Zentro</div>
+                          </div> 
+        </body>
+        {%else%}
+
+        <body>
+            <div class="container">
+            <h1>Dear {{employeename}},</h1>
+            <p>I trust this email finds you in good spirits. I wanted to provide you with an update regarding your recent work from home application.</p>
+            
+            <h4>Application Details:</h4>
+            <ul>
+                <li><b>Application Id:</b> {{applicationid}}</li>
+                <li><b>Leave  Date:</b> {{dates}}</li>
+            </ul>
+            <p> After diligent efforts to communicate your request to the respective managers, we unfortunately did not receive the necessary responses within the designated timeframe. Regrettably, this has led to the decision to reject your current work from home application.</p>
+            
+            
+            <p>I understand that flexible work arrangements are important for maintaining a healthy work-life balance. While this particular application did not proceed as hoped, I encourage you to continue the dialogue with your managers about future possibilities. Open conversations can help us identify opportunities that align with both your needs and our operational requirements.</p>
+            <p>Thank you for your understanding, and I look forward to ongoing collaboration.</p>
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>            
+
+            </div>
+
+        </body>
+
+        {%endif%}
+
+
+
+
+    {%endif%}
+
+</html>

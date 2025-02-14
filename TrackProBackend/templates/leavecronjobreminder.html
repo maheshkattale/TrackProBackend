@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reminder Email</title>
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #999;
+    }
+  </style>
+</head>
+
+    {%if type == "Leave" %}
+
+        {%if day_count == 0 %}
+
+          {%if Approvel_obj == True %}
+
+              <body>
+                <div class="container">
+                  <h1>Dear Sir/Mam,</h1>
+                  <p>I hope this email finds you well. 
+                    I am writing to bring your attention to an important matter regarding the pending leave application for our team member, 
+                    <b>{{employeename}}</b>. As of now, the leave application has not been processed or approved.</p>
+                    <h4>Application Details:</h4>
+                    <ul>
+                        <li><b>Application Id:</b> {{applicationid}}</li>
+                        <li><b>Application Reason:</b> {{reason}}</li>
+                    </ul>
+                  <p>We kindly request you to take the necessary actions on this leave application before <b>09:30 AM today</b>.
+                    If no action is taken by that time, we will assume that the leave application has been <b>approved</b> as requested by the employee.</p>
+                  
+
+                  
+                  <p>Thank you for your attention to this matter. Your prompt response is highly appreciated.</p>
+                  
+                  <div>Best regards,</div>
+
+                  <div>Team Zentro</div>                  
+
+                </div>
+              
+                <div class="footer">
+                </div>
+              </body>
+          {%else%}
+              <body>
+                <div class="container">
+                  <h1>Dear Sir/Mam,</h1>
+                  <p>I hope this email finds you well. 
+                    I am writing to bring your attention to an important matter regarding the pending leave application for our team member, 
+                    <b>{{employeename}}</b>. As of now, the leave application has not been processed or approved.</p>
+                    <h4>Application Details:</h4>
+                    <ul>
+                        <li><b>Application Id:</b> {{applicationid}}</li>
+                        <li><b>Application Reason:</b> {{reason}}</li>
+                    </ul>
+                  <p>We kindly request you to take the necessary actions on this leave application before <b>09:30 AM today</b>.
+                    If no action is taken by that time, we will assume that the leave application has been <b>rejected</b> as requested by the employee.</p>
+                  
+
+                  
+                  <p>Thank you for your attention to this matter. Your prompt response is highly appreciated.</p>
+                  
+                  <div>Best regards,</div>
+
+                  <div>Team Zentro</div>                  
+
+                </div>
+              
+                <div class="footer">
+                </div>
+              </body>
+          {%endif%}
+        {%else%}
+
+          <body>
+            <div class="container">
+              <h1>Dear Sir/Mam,</h1>
+              <p>I hope this email finds you well. I am writing to bring to your attention that one of your team members,
+                <b>{{employeename}}</b>, has applied for Leave, and we have not yet received a response to their application.</p>
+                <h4>Application Details:</h4>
+                <ul>
+                    <li><b>Application Id:</b> {{applicationid}}</li>
+                    <li><b>Application Reason:</b> {{reason}}</li>
+                </ul>
+              <p><b>{{employeename}}</b> has submitted their Leave request for the following period:<b> {{dates}}</b>. As
+                per our company policy, it is essential that Leave applications are approved or declined in a timely manner to
+                ensure proper workforce planning and smooth team operations.</p>
+              
+              <p>We kindly request you to review the Leave application and take the necessary action as soon as possible. If you
+                have any concerns or queries regarding the Leave request, please don't hesitate to reach out to  <b>{{employeename}}</b>.</p>
+              
+              <p>Please note that a timely response is crucial to ensure that <b>{{employeename}}</b> can effectively plan their time
+                off and that the team can make any necessary arrangements to ensure workflow continuity.</p>
+              
+              <p>Thank you for your attention to this matter. Your prompt response is highly appreciated.</p>
+              
+              <div>Best regards,</div>
+
+              <div>Team Zentro</div>              
+
+            </div>
+          
+            <div class="footer">
+            </div>
+          </body>
+
+        {%endif%}
+
+
+
+
+    {%else%}
+
+      {%if day_count == 0 %}
+        {%if Approvel_obj == True %}
+
+          <body>
+            <div class="container">
+              <h1>Dear Sir/Mam,</h1>
+              <p>I hope this email finds you well. 
+                I am writing to bring your attention to an important matter regarding the pending Work from home application for our team member, 
+                <b>{{employeename}}</b>. As of now, the Work from home application has not been processed or approved.</p>
+                <h4>Application Details:</h4>
+                <ul>
+                    <li><b>Application Id:</b> {{applicationid}}</li>
+                    <li><b>Application Reason:</b> {{reason}}</li>
+                </ul>
+              <p>We kindly request you to take the necessary actions on this Work from home application before <b>09:30 AM today</b>.
+                If no action is taken by that time, we will assume that the Work from home application has been <b>approved</b> as requested by the employee.</p>
+              
+
+              
+              <p>Thank you for your attention to this matter. Your prompt response is highly appreciated.</p>
+              
+              <div>Best regards,</div>
+
+              <div>Team Zentro</div>              
+
+            </div>
+          
+            <div class="footer">
+            </div>
+          </body>
+        {%else%}
+          <body>
+            <div class="container">
+              <h1>Dear Sir/Mam,</h1>
+              <p>I hope this email finds you well. 
+                I am writing to bring your attention to an important matter regarding the pending Work from home application for our team member, 
+                <b>{{employeename}}</b>. As of now, the Work from home application has not been processed or approved.</p>
+                <h4>Application Details:</h4>
+                <ul>
+                    <li><b>Application Id:</b> {{applicationid}}</li>
+                    <li><b>Application Reason:</b> {{reason}}</li>
+                </ul>
+              <p>We kindly request you to take the necessary actions on this Work from home application before <b>09:30 AM today</b>.
+                If no action is taken by that time, we will assume that the Work from home application has been <b>rejected</b> as requested by the employee.</p>
+              
+
+              
+              <p>Thank you for your attention to this matter. Your prompt response is highly appreciated.</p>
+              
+              <div>Best regards,</div>
+
+              <div>Team Zentro</div>              
+
+            </div>
+          
+            <div class="footer">
+            </div>
+          </body>
+        {%endif%}
+
+      {%else%}
+
+
+
+        <body>
+          <div class="container">
+            <h1>Dear Sir/Mam,</h1>
+            <p>I hope you're well. I wanted to highlight that <b>{{employeename}}</b>'s leave application is still pending approval.
+              Your prompt action on this matter would be greatly appreciated to ensure smooth team operations.</p>
+              <h4>Application Details:</h4>
+              <ul>
+                  <li><b>Application Id:</b> {{applicationid}}</li>
+                  <li><b>Application Reason:</b> {{reason}}</li>
+              </ul>
+            <p><b>{{employeename}}</b> has submitted their Work From Home request for the following period: {{startdate}} to {{enddate}}. As
+              per our company policy, it is essential that Work From Home applications are approved or declined in a timely manner to
+              ensure proper workforce planning and smooth team operations.</p>
+            
+            <p>We kindly request you to review the Work From Home application and take the necessary action as soon as possible. If you
+              have any concerns or queries regarding the Work From Home request, please don't hesitate to reach out to  <b>{{employeename}}</b>.</p>
+            
+            <p>Please note that a timely response is crucial to ensure that <b>{{employeename}}</b> can effectively plan their time
+              off and that the team can make any necessary arrangements to ensure workflow continuity.</p>
+            
+            <p>Thank you for your attention to this matter. Your prompt response is highly appreciated.</p>
+            
+            <div>Best regards,</div>
+
+            <div>Team Zentro</div>            
+
+          </div>
+        
+          <div class="footer">
+          </div>
+        </body>
+      {%endif%}
+
+
+    {%endif%}
+
+</html>

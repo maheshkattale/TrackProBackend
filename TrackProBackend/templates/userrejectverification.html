@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  {% load encryption_filters %}
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Password successfully</title>
+    <style type="text/css">
+      body {
+        font-family: "Open sans", Arial, sans-serif;
+      }
+
+      .ReadMsgBody {
+        width: 100%;
+        background-color: #ffffff;
+      }
+
+      .ExternalClass {
+        width: 100%;
+        background-color: #ffffff;
+      }
+
+      .ExternalClass,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+
+      html {
+        width: 100%;
+      }
+
+      body {
+        -webkit-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      table {
+        border-spacing: 0;
+        table-layout: auto;
+        margin: 0 auto;
+      }
+
+      img {
+        display: block !important;
+        overflow: hidden !important;
+      }
+
+      .yshortcuts a {
+        border-bottom: none !important;
+      }
+
+      img:hover {
+        opacity: 0.9 !important;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        transition: 0.5s all;
+      }
+
+      a:hover {
+        color: #00aeef;
+        text-decoration: none;
+        transition: 0.5s all;
+      }
+
+      .textbutton a {
+        font-family: "open sans", arial, sans-serif !important;
+      }
+
+      .btn-link a {
+        color: #ffffff !important;
+      }
+
+      li {
+        margin: 0 !important;
+      }
+
+      .submitted p {
+        font-size: 16px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        color: #000000;
+        line-height: 1.4;
+      }
+
+      .btn {
+        background: #000;
+        padding: 10px;
+        color: #fff;
+        margin-top: 40px;
+        font-size: 15px;
+      }
+
+      .btn:hover {
+        background: #1d1d1d;
+        padding: 10px;
+        color: #fff;
+        margin-top: 40px;
+      }
+
+      .thankyou {
+        font-weight: 900;
+        color: #00aeef;
+        font-size: 22px;
+      }
+
+      .intro {
+        color: #1d1d1d;
+        font-size: 16px;
+      }
+
+      .best-regard {
+        margin-top: 20px !important;
+      }
+
+      .footer-link {
+        color: #fff;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+
+      .copyright {
+        font-size: 13px;
+        text-align: center;
+        margin: 0;
+      }
+
+      .mt-mb {
+        margin-top: 40px !important;
+        margin-bottom: 20px !important;
+      }
+
+      p.support {
+        font-size: 15px;
+        margin-top: 20px !important;
+      }
+
+      .mb-0 {
+        margin-bottom: 0 !important;
+      }
+
+      /*Responsive*/
+      @media only screen and (max-width: 640px) {
+        body {
+          margin: 0px;
+          width: auto !important;
+          font-family: "Open Sans", Arial, Sans-serif !important;
+        }
+
+        .table-inner {
+          width: 90% !important;
+          max-width: 90% !important;
+        }
+
+        .table-full {
+          width: 100% !important;
+          max-width: 100% !important;
+          text-align: left !important;
+        }
+      }
+
+      @media only screen and (max-width: 479px) {
+        body {
+          width: auto !important;
+          font-family: "Open Sans", Arial, Sans-serif !important;
+        }
+
+        .table-inner {
+          width: 90% !important;
+          text-align: center !important;
+        }
+
+        .table-full {
+          width: 100% !important;
+          max-width: 100% !important;
+          text-align: left !important;
+        }
+
+        /*gmail*/
+        u + .body .full {
+          width: 100% !important;
+          width: 100vw !important;
+        }
+        .linkstyle {
+          color: 00AEEF !important;
+        }
+        .linkstyle:hover {
+          color: 00AEEF !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="body">
+    <p>Dear <b>{{Name}}</b>,</p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We hope
+      this email finds you well. As part of our onboarding process at
+      {{companyName}}, we have been diligently verifying the documents submitted
+      by all our new hires to ensure compliance and accuracy. We regret to
+      inform you that there have been some issues identified in the documents
+      you provided due to below mentioned reasons.
+    </p>
+    <b>{{description}}</b>
+
+    <p>
+      We understand that issues can occur, and we appreciate your cooperation in
+      resolving these matters promptly. To avoid any further delays in your
+      onboarding process, we kindly request that you kindly follow the link
+      provided below:
+    </p>
+    <p>
+      <a
+        style="color: #00aeef !important"
+        href="{{hosturl}}/user-secondaryinfo/{{id|encrypt_parameter}}"
+        >click here</a
+      >.
+    </p>
+    <p>
+      Once we receive the revised documents and complete the verification
+      process, we will proceed with finalizing your onboarding.
+    </p>
+    <p>
+      Thank you for your attention to this matter. We are eager to welcome you
+      to our team and look forward to your successful onboarding at
+      {{companyName}}.
+    </p>
+    <p>
+      Best regards,
+      <br />
+      Team {{companyName}}
+      <br />
+      <a style="color: #00aeef !important" href="mailto:hr@onerooftech.com"
+        >hr@onerooftech.com</a
+      >
+    </p>
+  </body>
+</html>

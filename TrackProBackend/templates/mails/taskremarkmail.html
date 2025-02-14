@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Task Feedback Notification</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      p {
+        margin-bottom: 15px;
+        line-height: 1.5;
+      }
+
+      span {
+        color: #007bff;
+      }
+
+      div.signature {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Dear <b>{{employeename}}</b>,</p>
+
+    <p>I trust this message finds you well. <span>{{remarkby}}</span> has provided feedback on your recent task. Please review the remarks and address any necessary actions. If you have questions, feel free to reach out to <span>{{remarkby}}</span>.</p>
+    <span><b>Task Details:</b></span>
+
+    {% if task_details %}
+    <ul>
+
+      <li>
+        <b>Assign Date : </b>  {{task_details.AssignDate}}
+      </li>
+
+      <li>
+        <b>Assign By : </b>{{task_details.AssignByStr}}
+      </li>
+
+      <li>
+        <b>Project : </b>{{task_details.ProjectName}}
+      </li>
+
+      <li>
+        <b>Description : </b>{{task_details.TaskTitle}}
+      </li>
+
+    </ul>
+    {% endif %}
+
+    <span><b>Remark:</b> </span>{{remark}}.
+
+    <p>Thank you.</p>
+
+    <div class="signature">Best regards,<br/>Team Zentro</div>
+  </body>
+</html>
