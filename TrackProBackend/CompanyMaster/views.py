@@ -665,15 +665,15 @@ def addEmployeeExcel(request):
                 else:
                     empgender = "F" 
                 role = data[7]
-                roleObject = Role.objects.filter(RoleName=role,Active=True,company_code = companycode ).first()
+                roleObject = Role.objects.filter(RoleName__in=[role.strip().capitalize(),role.strip(),role.title(),role.lower()],Active=True,company_code = companycode ).first()
                 if roleObject is None:
                     rolemsg = 'Add this Role ('+role+") first"
                 designation = data[8]
-                designationObject = Designation.objects.filter(DesignationName=designation,company_code = companycode ).first()
+                designationObject = Designation.objects.filter(DesignationName__in=[designation.strip().capitalize(),designation.strip(),designation.title(),designation.lower()],company_code = companycode ).first()
                 if designationObject is None:
                     desgmsg = 'Add this Designation ('+designation+") first"
                 department = data[9]
-                departmentObject = Department.objects.filter(DepartmentName=department,Active=True,company_code = companycode ).first()
+                departmentObject = Department.objects.filter(DepartmentName__in=[department.strip().capitalize(),department.strip(),department.title(),department.lower()],Active=True,company_code = companycode ).first()
                 if departmentObject is None:
                     deptmsg = 'Add this Department ('+department+") first"
                 doj = str(data[10]).split(" ")[0]
@@ -1154,11 +1154,14 @@ def Companypaymentloglist(request):
     companyObj = companyinfo.objects.filter(isactive=True).exclude(expirydate=None).order_by('id')
     companySerializer = companyserializer(companyObj,many=True)
     def convertddmmyy(date_str):
-        from datetime import datetime
-        date_obj = datetime.strptime(date_str, "%Y-%m-%d")
-        formatted_date = date_obj.strftime("%d-%m-%Y")
-        return formatted_date
-    
+        if date_str is not None and date_str !='':
+
+            from datetime import datetime
+            date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+            formatted_date = date_obj.strftime("%d-%m-%Y")
+            return formatted_date
+        else:
+            return ''
 
     companypaymentlogObj = companypaymentlog.objects.all().order_by('-id')
     companypaymentlogSer = CompanypaymentlogSerializer(companypaymentlogObj,many=True)

@@ -2439,7 +2439,11 @@ def userUpdate(request):
     try:
         request_data = request.data.copy()
         request_data['company_code'] = request.user.company_code
-        userID = request.query_params.get('userID')
+        userID = request.POST.get('id')
+
+        if userID is None:
+            userID = request.query_params.get('userID')
+
         if userID is None:
             data['n'] = 0
             data['Msg'] = 'User ID is none'
