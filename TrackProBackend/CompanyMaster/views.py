@@ -595,6 +595,7 @@ def addEmployeeExcel(request):
         counter = 0
         existcounter =0
         for data in imported_data:
+            print("data",data)
             email = data[4]
             firstname = data[0]
             lastName = data[1]
@@ -640,6 +641,12 @@ def addEmployeeExcel(request):
                 }
             })  
         elif existcounter !=0:
+            print({
+                "rolelist":rolelist,
+                "designationlist":designationlist,
+                "departmentlist":departmentlist,
+                "locationlist":locationlist
+            })
             return Response({
                 "data":rolelist + designationlist + departmentlist + locationlist,
                 "response": {
