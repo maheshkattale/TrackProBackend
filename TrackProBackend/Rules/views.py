@@ -208,6 +208,7 @@ def dataruleslist(request):
 @api_view(['POST'])
 def addannouncement(request):
     requestData = request.data.copy()
+    print("requestData",requestData)
     requestData['company_code'] = request.user.company_code    
     requestData['CreatedBy'] = request.user.id
     requestData['is_active'] = True
@@ -218,7 +219,7 @@ def addannouncement(request):
         userlist_obj=Users.objects.filter(is_active=True,company_code=request.user.company_code).exclude(Q(desktopToken__isnull=True)|Q(desktopToken='None')|Q(desktopToken=''))
         user_serializer=UserSerializerDesktopToken(userlist_obj,many=True)
         user_desktoptoken_list=list(user_serializer.data)     
-        desktopnotification=send_desktop_notfication_to_all(user_desktoptoken_list,serializer.data['announcementText'])
+        # desktopnotification=send_desktop_notfication_to_all(user_desktoptoken_list,serializer.data['announcementText'])
           
         return Response({
         "data": serializer.data,
@@ -229,6 +230,7 @@ def addannouncement(request):
         }
     })
     else:
+        print("serializer.errors",serializer.errors)
         return Response({
         "data": serializer.errors,
         "response": {
